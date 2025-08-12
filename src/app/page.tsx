@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Image
           className="dark:invert"
           src="/next.svg"
@@ -12,17 +12,27 @@ export default function Home() {
           height={38}
           priority
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
+        <div className="text-center sm:text-left">
+          <h1 className="text-4xl font-bold mb-4">
+            Welcome to <span className="text-blue-600">StreakFlow</span>
+          </h1>
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-2">
+            Flow into your streak
+          </p>
+          <p className="text-lg text-gray-500 dark:text-gray-400">
+            Personal Habit Tracker & Productivity Dashboard
+          </p>
+        </div>
+
+        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
+          <li className="mb-2">
+            Build powerful habits with visual streak tracking.
           </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
+          <li className="mb-2">
+            Focus on what matters with daily priority tasks.
           </li>
+          <li className="mb-2">Reflect and grow with integrated journaling.</li>
+          <li>Optimize productivity with Pomodoro timer sessions.</li>
         </ol>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
