@@ -1,21 +1,21 @@
 import {
-  Habit,
-  HabitCompletion,
-  DailyFocus,
-  JournalEntry,
-  PomodoroSession,
-  User,
+  habit,
+  habitCompletion,
+  dailyFocus,
+  journalEntry,
+  pomodoroSession,
+  user,
 } from "@prisma/client";
 
-export interface HabitWithCompletions extends Habit {
-  completions: HabitCompletion[];
+export interface HabitWithCompletions extends habit {
+  completions: habitCompletion[];
 }
 
 export interface DashboardData {
   habits: HabitWithCompletions[];
-  dailyFocus: DailyFocus[];
-  journalEntry: JournalEntry | null;
-  user: User;
+  dailyFocus: dailyFocus[];
+  journalEntry: journalEntry | null;
+  user: user;
 }
 
 export interface HabitStreak {
@@ -28,7 +28,7 @@ export interface PomodoroState {
   isRunning: boolean;
   timeLeft: number;
   duration: number;
-  session: PomodoroSession | null;
+  session: pomodoroSession | null;
 }
 
 export interface CreateHabitData {

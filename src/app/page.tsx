@@ -1,104 +1,156 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { CheckCircle, Target, Calendar, TrendingUp } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <div className="text-center sm:text-left">
-          <h1 className="text-4xl font-bold mb-4">
-            Welcome to <span className="text-blue-600">StreakFlow</span>
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-2">
-            Flow into your streak
-          </p>
-          <p className="text-lg text-gray-500 dark:text-gray-400">
-            Personal Habit Tracker & Productivity Dashboard
-          </p>
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-950 dark:via-blue-950 dark:to-indigo-950">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <header className="flex justify-between items-center py-6">
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-sm">S</span>
+            </div>
+            <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              StreakFlow
+            </span>
+          </div>
+          <div className="flex items-center space-x-4">
+            <Link href="/auth/login">
+              <Button
+                variant="ghost"
+                className="text-gray-600 dark:text-gray-300"
+              >
+                Sign In
+              </Button>
+            </Link>
+            <Link href="/auth/register">
+              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
+                Get Started
+              </Button>
+            </Link>
+          </div>
+        </header>
 
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Build powerful habits with visual streak tracking.
-          </li>
-          <li className="mb-2">
-            Focus on what matters with daily priority tasks.
-          </li>
-          <li className="mb-2">Reflect and grow with integrated journaling.</li>
-          <li>Optimize productivity with Pomodoro timer sessions.</li>
-        </ol>
+        {/* Hero Section */}
+        <main className="py-16 sm:py-24">
+          <div className="text-center mb-16">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+              Flow into your{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                streak
+              </span>
+            </h1>
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+              Your personal habit tracker and productivity dashboard. Build
+              lasting habits, focus on what matters, and track your progress
+              with beautiful, interactive charts.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/auth/register">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-lg px-8 py-3"
+                >
+                  Start Your Journey
+                </Button>
+              </Link>
+              <Link href="/dashboard">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-lg px-8 py-3 border-2 border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600"
+                >
+                  View Demo
+                </Button>
+              </Link>
+            </div>
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="/dashboard"
-          >
-            Open Dashboard
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          {/* Features */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {[
+              {
+                icon: <Target className="w-8 h-8" />,
+                title: "Habit Tracking",
+                description:
+                  "Visual streak tracking with colorful progress indicators",
+                color: "from-green-400 to-green-600",
+              },
+              {
+                icon: <CheckCircle className="w-8 h-8" />,
+                title: "Daily Focus",
+                description:
+                  "Prioritize 3 key tasks each day for maximum impact",
+                color: "from-blue-400 to-blue-600",
+              },
+              {
+                icon: <Calendar className="w-8 h-8" />,
+                title: "Pomodoro Timer",
+                description: "Focus sessions with customizable time intervals",
+                color: "from-purple-400 to-purple-600",
+              },
+              {
+                icon: <TrendingUp className="w-8 h-8" />,
+                title: "Progress Analytics",
+                description: "Weekly overviews and productivity insights",
+                color: "from-orange-400 to-orange-600",
+              },
+            ].map((feature, index) => (
+              <Card
+                key={index}
+                className="border-0 shadow-lg bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              >
+                <CardContent className="p-6 text-center">
+                  <div
+                    className={`w-16 h-16 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center text-white mx-auto mb-4`}
+                  >
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">
+                    {feature.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center">
+            <Card className="border-0 shadow-xl bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/50 dark:to-purple-950/50 backdrop-blur-sm">
+              <CardContent className="p-12">
+                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                  Ready to build your streaks?
+                </h2>
+                <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+                  Join thousands of users who are building better habits and
+                  achieving their goals.
+                </p>
+                <Link href="/auth/register">
+                  <Button
+                    size="lg"
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-lg px-12 py-4"
+                  >
+                    Get Started for Free
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+        </main>
+
+        {/* Footer */}
+        <footer className="py-8 border-t border-gray-200 dark:border-gray-800 text-center">
+          <p className="text-gray-600 dark:text-gray-400">
+            © 2024 StreakFlow. Built with Next.js, Tailwind CSS, and ❤️
+          </p>
+        </footer>
+      </div>
     </div>
   );
 }
